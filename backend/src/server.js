@@ -8,7 +8,7 @@ let latestData = "No data received yet.";
 app.use(cors());
 app.use(express.json());
 
-app.post("/api/create-answer", (req, res) => {
+app.post("/api/create-answer",(req, res) => {
   const receivedData = req.body.data;
 
   if (receivedData) {
