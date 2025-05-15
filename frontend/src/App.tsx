@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 // import './App.css'; // Optional: if Vite created one
 
 function App() {
   // Use type annotation for state for clarity in TypeScript
-  const [latestAnswer, setLatestAnswer] = useState<string>('Loading...');
+  const [latestAnswer, setLatestAnswer] = useState<string>("Loading...");
 
   // *** IMPORTANT: This URL needs to be updated on the EC2 instance ***
-  const BACKEND_API_URL = 'http://localhost:3000';
+  const BACKEND_API_URL = "http://51.21.195.88:3000";
 
   useEffect(() => {
     const fetchAnswer = async () => {
@@ -17,15 +17,15 @@ function App() {
         }
         // Ensure the response JSON matches what the backend sends
         const data: { data?: string } = await response.json(); // Add type for safety
-        console.log('Fetched data from backend:', data);
-        setLatestAnswer(data.data || 'No data received yet.');
+        console.log("Fetched data from backend:", data);
+        setLatestAnswer(data.data || "No data received yet.");
       } catch (error) {
         console.error("Error fetching answer:", error);
         // Type assertion or check for error handling
         if (error instanceof Error) {
-            setLatestAnswer(`Error fetching data: ${error.message}`);
+          setLatestAnswer(`Error fetching data: ${error.message}`);
         } else {
-            setLatestAnswer('An unknown error occurred.');
+          setLatestAnswer("An unknown error occurred.");
         }
       }
     };
@@ -42,7 +42,7 @@ function App() {
       {/* -------------------------- */}
 
       <p>
-        (This page displays the last piece of data sent to your backend's 
+        (This page displays the last piece of data sent to your backend's
         <code>/api/create-answer</code> endpoint)
       </p>
     </div>
