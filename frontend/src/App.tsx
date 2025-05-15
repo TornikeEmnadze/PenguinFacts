@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
-// import './App.css'; // Optional: if Vite created one
 
 function App() {
-  // Use type annotation for state for clarity in TypeScript
   const [latestAnswer, setLatestAnswer] = useState<string>("Loading...");
 
-  // *** IMPORTANT: This URL needs to be updated on the EC2 instance ***
-  const BACKEND_API_URL = "http://51.21.195.88:3000";
+  const BACKEND_API_URL = "http://13.53.130.159:3000/";
 
   useEffect(() => {
     const fetchAnswer = async () => {
